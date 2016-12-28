@@ -44,7 +44,8 @@
 
 -module(qc_ubf_impl, [MOD, CONTRACTS]).
 
--ifdef(QC).
+%% -ifdef(QCQ).
+-ifdef(QCQ_PMOD_BROKEN). %% callback parameters no longer match with "behaviour" expectations because of pmod_transform parse transform
 
 %% API
 -export([qc_run/2]).
