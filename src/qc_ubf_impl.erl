@@ -58,7 +58,7 @@
 -behaviour(qc_statem).
 -export([scenario_gen/0, command_gen/1, command_gen/2, command_typegen/4]).
 -export([initial_state/1, state_is_sane/1, next_state/3, precondition/2, postcondition/3]).
--export([setup/0, setup/1, teardown/2, aggregate/1]).
+-export([setup/1, setup/2, teardown/2, aggregate/1]).
 
 -include_lib("qc/include/qc_statem.hrl").
 
@@ -222,17 +222,17 @@ rpc(Contract,TypeName,Type) ->
     end.
 
 %% setup
-setup() ->
+setup(Options) ->
     try
-        MOD:setup()
+        MOD:setup(Options)
     catch
         error:undef ->
             ok
     end.
 
-setup(Scenario) ->
+setup(Scenario, Options) ->
     try
-        MOD:setup(Scenario)
+        MOD:setup(Scenario, Options)
     catch
         error:undef ->
             {ok,undefined}
