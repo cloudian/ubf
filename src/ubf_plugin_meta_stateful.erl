@@ -53,7 +53,7 @@
 -export([info/0, description/0]).
 
 -compile({parse_transform,contract_parser}).
--add_pmod_contract("src/ubf_plugin_meta_stateful").
+-add_pmod_contract("_build/default/lib/ubf/src/ubf_plugin_meta_stateful").
 
 -include("ubf.hrl").
 
